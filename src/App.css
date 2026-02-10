@@ -1,0 +1,190 @@
+/* Container styling */
+.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 3rem;
+  box-sizing: border-box;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Intro section */
+.Intro {
+  flex: 0 0 60%;
+  display: block;
+  text-align: left;
+  padding-right: 2rem;
+}
+
+/* Main text styling - SINGLE LINE */
+.main-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 7vw, 5rem); /* Slightly smaller for single line */
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 2rem 0;
+  text-align: left;
+  letter-spacing: -0.5px;
+  color: #333;
+  white-space: normal; /* Allow normal wrapping */
+  word-wrap: break-word;
+}
+
+/* Button styling */
+.andika-btn {
+  padding: 1.2rem 4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #FF6B8B;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 107, 139, 0.4);
+  min-width: 250px;
+  display: block;
+  margin-top: 2rem;
+}
+
+/* Emoji styling */
+.emoji {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Add this to your existing CSS */
+
+/* Pulsating animation for the heart */
+.emoji img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  animation: pulse 2s infinite ease-in-out; /* Add this line */
+}
+
+/* Define the pulsating animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1); /* Grows 10% larger */
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* More dramatic pulsating effect */
+@keyframes pulse-strong {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(255, 107, 139, 0.5));
+  }
+  50% {
+    transform: scale(1.15); /* Grows 15% larger */
+    filter: drop-shadow(0 0 15px rgba(255, 107, 139, 0.8));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(255, 107, 139, 0.5));
+  }
+}
+
+/* Heartbeat style pulsating */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  10% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Choose which animation you want by adding a class */
+.emoji.pulsating img {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.emoji.strong-pulse img {
+  animation: pulse-strong 2s infinite ease-in-out;
+}
+
+.emoji.heartbeat img {
+  animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+/* Optional: Add glow effect on hover */
+.emoji img:hover {
+  animation: pulse-strong 1s infinite ease-in-out;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .emoji img {
+    max-width: 300px;
+    animation: pulse 2s infinite ease-in-out; /* Keep pulsing on mobile */
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+    min-height: 100vh;
+  }
+  
+  .Intro {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .main-text {
+    text-align: center;
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .emoji {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .emoji img {
+    max-width: 300px;
+  }
+  
+  .andika-btn {
+    margin: 1rem auto 0;
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+  }
+}
