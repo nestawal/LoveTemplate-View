@@ -1,0 +1,362 @@
+/* RomanticBook.css */
+
+.flip-book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(145deg, #2d1a2c, #1a0f1a);
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+/* Book spine effect */
+.book-spine {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  bottom: 5%;
+  width: 20px;
+  background: linear-gradient(90deg, #8b5a2b, #654321, #8b5a2b);
+  transform: translateX(-50%);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+/* Main book page */
+.book-page-view {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  min-height: 600px;
+  background: #fff9f0;
+  background-image: 
+    linear-gradient(transparent, transparent 29px, rgba(244, 114, 182, 0.1) 29px);
+  background-size: 100% 30px;
+  border-radius: 15px 2px 2px 15px;
+  padding: 3rem 4rem;
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.3),
+    0 0 0 1px #e6d5b8,
+    0 0 0 2px #c4a484,
+    inset 0 0 0 1px #fff;
+  border-left: 5px solid #c4a484;
+  margin: 2rem 0;
+  animation: pageAppear 0.6s ease-out;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page animation */
+@keyframes pageAppear {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Page icon */
+.page-icon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Page title */
+.book-page-view h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  color: #be185d;
+  text-align: center;
+  margin: 0.5rem 0 2rem 0;
+  text-shadow: 2px 2px 4px rgba(190, 24, 93, 0.1);
+  border-bottom: 2px solid #f9a8d4;
+  padding-bottom: 1rem;
+}
+
+/* Romantic list styling */
+.romantic-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.romantic-list li {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #4a044e;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(244, 114, 182, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.romantic-list li:hover {
+  transform: translateX(5px);
+  background: white;
+  box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
+}
+
+.romantic-list .bullet {
+  font-size: 1.8rem;
+  animation: pulse 2s infinite;
+}
+
+/* Romantic text content */
+.romantic-text-content {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.7rem;
+  line-height: 1.8;
+  color: #4a044e;
+  white-space: pre-wrap;
+  padding: 1.5rem;
+  background: rgba(255, 245, 250, 0.7);
+  border-radius: 20px;
+  flex: 1;
+  overflow-y: auto;
+  box-shadow: inset 0 0 20px rgba(190, 24, 93, 0.05);
+}
+
+/* Page number */
+.page-number {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: #be185d;
+  letter-spacing: 2px;
+  border-top: 1px dashed #f9a8d4;
+  padding-top: 1.5rem;
+}
+
+/* Navigation buttons container */
+.book-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 2rem;
+  gap: 1.5rem;
+}
+
+/* Navigation buttons */
+.nav-btn {
+  padding: 1.2rem 2.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #be185d 0%, #db2777 100%);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(190, 24, 93, 0.3);
+  letter-spacing: 2px;
+  border: 2px solid #fbcfe8;
+  flex: 1;
+}
+
+.nav-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(190, 24, 93, 0.5);
+  background: linear-gradient(135deg, #db2777 0%, #ec4899 100%);
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  box-shadow: none;
+}
+
+/* Restart button */
+.restart-btn {
+  padding: 1.2rem 2.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #ff85a2 0%, #ff6b95 100%);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 107, 149, 0.4);
+  letter-spacing: 2px;
+  border: 2px solid white;
+  flex: 1;
+}
+
+.restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 107, 149, 0.6);
+  background: linear-gradient(135deg, #ff94ae 0%, #ff7ba0 100%);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Empty state styling */
+.romantic-text-content:empty::before {
+  content: "✨ Your beautiful words will appear here...";
+  color: #d4a6b6;
+  font-style: italic;
+}
+
+.romantic-list:empty::before {
+  content: "❤️ Your ten things will appear here...";
+  display: block;
+  text-align: center;
+  color: #d4a6b6;
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* Decorative elements */
+.book-page-view::after {
+  content: "❤️";
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 2rem;
+  opacity: 0.15;
+  transform: rotate(10deg);
+}
+
+.book-page-view::before {
+  content: "✨";
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 2rem;
+  opacity: 0.15;
+  transform: rotate(-10deg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .flip-book-container {
+    padding: 1rem;
+  }
+  
+  .book-page-view {
+    padding: 2rem;
+    min-height: 500px;
+  }
+  
+  .book-page-view h2 {
+    font-size: 2.2rem;
+  }
+  
+  .romantic-text-content {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+  
+  .romantic-list li {
+    font-size: 1.3rem;
+  }
+  
+  .nav-btn, .restart-btn {
+    padding: 1rem 1.8rem;
+    font-size: 1.3rem;
+  }
+  
+  .page-icon {
+    font-size: 3rem;
+  }
+  
+  .book-spine {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-page-view {
+    padding: 1.5rem;
+    min-height: 450px;
+  }
+  
+  .book-page-view h2 {
+    font-size: 1.8rem;
+  }
+  
+  .romantic-text-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .romantic-list li {
+    font-size: 1.1rem;
+    padding: 0.6rem;
+  }
+  
+  .book-navigation {
+    flex-direction: column;
+  }
+  
+  .nav-btn, .restart-btn {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .page-number {
+    font-size: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .flip-book-container {
+    background: white;
+    padding: 0;
+  }
+  
+  .book-page-view {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .nav-btn, .restart-btn, .book-spine {
+    display: none;
+  }
+}

@@ -1,0 +1,838 @@
+.WriteIntro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffeef1 100%);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.background-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.background-hearts::before,
+.background-hearts::after {
+  content: "💗";
+  position: absolute;
+  font-size: 120px;
+  opacity: 0.05;
+}
+
+.background-hearts::before {
+  top: 10%;
+  left: 10%;
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.background-hearts::after {
+  bottom: 15%;
+  right: 10%;
+  animation: float-slow 10s ease-in-out infinite reverse;
+}
+
+.center-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3.5rem 4rem;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 15px 50px rgba(255, 107, 149, 0.15);
+  border: 1px solid rgba(255, 107, 149, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.center-container::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(135deg, #ffb6c1 0%, #ff85a2 100%);
+  border-radius: 30px;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.romantic-text {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #8a4b76;
+  margin: 0 0 3rem 0;
+  letter-spacing: 0.3px;
+}
+
+.romantic-text::before {
+  content: "💌";
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.romantic-button {
+  padding: 1.2rem 4rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #ff85a2 0%, #ff6b95 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 107, 149, 0.3);
+  letter-spacing: 0.5px;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.romantic-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 107, 149, 0.4);
+  background: linear-gradient(135deg, #ff94ae 0%, #ff7ba0 100%);
+}
+
+.romantic-button:active {
+  transform: translateY(-1px);
+}
+
+.romantic-button::after {
+  content: "❤️";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+.writeLetter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  padding: 3rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.writeLetter-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f472b6' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E"),
+    linear-gradient(to bottom, #fffaf0 0%, #fef3c7 100%);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.writeLetter-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3.5rem;
+  box-shadow: 
+    0 20px 60px rgba(244, 114, 182, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  border: 12px solid #f9a8d4;
+  border-image: repeating-linear-gradient(
+    45deg,
+    #f9a8d4,
+    #f9a8d4 10px,
+    #fbcfe8 10px,
+    #fbcfe8 20px
+  ) 12;
+}
+
+.writeLetter-label {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  font-weight: 500;
+  color: #be185d;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 3px;
+}
+
+.writeLetter-textarea {
+  width: 80%;
+  min-height: 450px;
+  padding: 2.5rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 2rem;
+  line-height: 1.8;
+  color: #4a044e;
+  background-color: #fffaf0;
+  border: none;
+  border-radius: 12px;
+  resize: vertical;
+  box-shadow: 
+    inset 0 0 30px rgba(190, 24, 93, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow-y: auto;
+}
+
+.writeLetter-textarea {
+  background-image: 
+    linear-gradient(transparent, transparent 31px, rgba(244, 114, 182, 0.1) 31px),
+    linear-gradient(90deg, transparent, transparent 31px, rgba(244, 114, 182, 0.05) 31px);
+  background-size: 100% 32px, 32px 100%;
+  background-attachment: local;
+}
+
+.writeLetter-textarea:focus {
+  outline: none;
+  box-shadow: 
+    inset 0 0 40px rgba(190, 24, 93, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.1);
+  background-color: #fffef9;
+}
+
+.writeLetter-textarea::placeholder {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #d4a6b6;
+  opacity: 0.7;
+  text-align: center;
+  padding-top: 150px;
+}
+
+.writeLetter-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.writeLetter-goBack,
+.writeLetter-next {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 120px;
+  max-width: 100px;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.writeLetter-goBack {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  color: #be185d;
+  border: 3px solid #f9a8d4;
+  box-shadow: 0 6px 20px rgba(244, 114, 182, 0.2);
+}
+
+.writeLetter-goBack:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.3);
+  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+}
+
+.writeLetter-goBack:active {
+  transform: translateY(-1px);
+}
+
+.writeLetter-next {
+  background: linear-gradient(135deg, #be185d 0%, #db2777 100%);
+  color: white;
+  border: 3px solid #ec4899;
+  box-shadow: 0 6px 20px rgba(190, 24, 93, 0.3);
+}
+
+.writeLetter-next:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(190, 24, 93, 0.4);
+  background: linear-gradient(135deg, #db2777 0%, #ec4899 100%);
+}
+
+.writeLetter-next:active {
+  transform: translateY(-1px);
+}
+
+.writeLetter-goBack::before,
+.writeLetter-next::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
+  background-size: 10px 10px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.writeLetter-goBack br,
+.writeLetter-next br {
+  display: block;
+  margin: 0.3rem 0;
+}
+
+.writeLetter-content::after {
+  content: "✉️";
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  font-size: 8rem;
+  opacity: 0.15;
+  transform: rotate(15deg);
+  z-index: 1;
+}
+
+.writeLetter-content::before {
+  content: "🖋️";
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  font-size: 6rem;
+  opacity: 0.15;
+  transform: rotate(-15deg);
+  z-index: 1;
+}
+/* TenThings.css - Desktop Version */
+
+.tenThings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.tenThings-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 25px 70px rgba(244, 114, 182, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  border: 12px solid #f9a8d4;
+  border-image: repeating-linear-gradient(
+    45deg,
+    #f9a8d4,
+    #f9a8d4 10px,
+    #fbcfe8 10px,
+    #fbcfe8 20px
+  ) 12;
+}
+
+.tenThings-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.8rem;
+  font-weight: 500;
+  color: #be185d;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: 3px;
+}
+
+.tenThings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.tenthings-textarea {
+  width: 100%;
+  max-width: 80%;
+  max-height: 10px;
+  padding: 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #4a044e;
+  background-color: #fffaf0;
+  border: 2px solid #f9a8d4;
+  border-radius: 12px;
+  resize: vertical;
+  box-shadow: 
+    inset 0 0 15px rgba(190, 24, 93, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+
+.tenthings-textarea {
+  background-image: 
+    linear-gradient(transparent, transparent 24px, rgba(244, 114, 182, 0.08) 24px);
+  background-size: 100% 25px;
+  background-attachment: local;
+}
+
+.tenthings-textarea:focus {
+  outline: none;
+  border-color: #ec4899;
+  box-shadow: 
+    inset 0 0 20px rgba(190, 24, 93, 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fffef9;
+  transform: translateY(-2px);
+}
+
+.tenthings-textarea::placeholder {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: #d4a6b6;
+  opacity: 0.8;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.tenThings-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.writeLetter-goBack,
+.writeLetter-next {
+  flex: 1;
+  padding: 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.writeLetter-goBack {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  color: #be185d;
+  border: 3px solid #f9a8d4;
+  box-shadow: 0 6px 20px rgba(244, 114, 182, 0.2);
+}
+
+.writeLetter-goBack:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.3);
+  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+}
+
+.writeLetter-goBack:active {
+  transform: translateY(-1px);
+}
+
+.writeLetter-next {
+  background: linear-gradient(135deg, #be185d 0%, #db2777 100%);
+  color: white;
+  border: 3px solid #ec4899;
+  box-shadow: 0 6px 20px rgba(190, 24, 93, 0.3);
+}
+
+.writeLetter-next:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(190, 24, 93, 0.4);
+  background: linear-gradient(135deg, #db2777 0%, #ec4899 100%);
+}
+
+.writeLetter-next:active {
+  transform: translateY(-1px);
+}
+
+.writeLetter-goBack br,
+.writeLetter-next br {
+  display: block;
+  margin: 0.3rem 0;
+}
+
+.tenThings-content::after {
+  content: "💖";
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  font-size: 8rem;
+  opacity: 0.1;
+  max-width: 80%;
+  transform: rotate(20deg);
+  z-index: 1;
+}
+
+.tenThings-content::before {
+  content: "✨";
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  font-size: 6rem;
+  opacity: 0.1;
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+
+
+@media (max-width: 768px) {
+  .center-container {
+    padding: 2.5rem 3rem;
+    width: 95%;
+  }
+  
+  .romantic-text {
+    font-size: clamp(1.7rem, 5vw, 2.2rem);
+    margin-bottom: 2.5rem;
+  }
+  
+  .romantic-text::before {
+    font-size: 3rem;
+  }
+  
+  .romantic-button {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    max-width: 250px;
+  }
+  
+  .background-hearts::before,
+  .background-hearts::after {
+    font-size: 80px;
+  }
+  
+  .writeLetter-container {
+    padding: 1rem;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+  
+  .writeLetter-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-width: 8px;
+    border-radius: 15px;
+  }
+  
+  .writeLetter-label {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .writeLetter-textarea {
+    min-height: 350px;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 2;
+    margin-bottom: 2rem;
+    background-size: 100% 36px, 36px 100%;
+  }
+  
+  .writeLetter-textarea::placeholder {
+    font-size: 2rem;
+    padding-top: 100px;
+  }
+  
+  .writeLetter-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .writeLetter-goBack,
+  .writeLetter-next {
+    min-height: 100px;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    border-radius: 12px;
+    flex: 1;
+  }
+  
+  .writeLetter-content::after {
+    bottom: -20px;
+    right: -20px;
+    font-size: 4rem;
+  }
+  
+  .writeLetter-content::before {
+    top: -20px;
+    left: -20px;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .center-container {
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .romantic-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .romantic-text::before {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .romantic-button {
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    max-width: 220px;
+  }
+  
+  .background-hearts::before,
+  .background-hearts::after {
+    font-size: 60px;
+  }
+  
+  .writeLetter-container {
+    padding: 0.5rem;
+  }
+  
+  .writeLetter-content {
+    padding: 1rem;
+    border-width: 6px;
+  }
+  
+  .writeLetter-label {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .writeLetter-textarea {
+    min-height: 300px;
+    padding: 1rem;
+    font-size: 1.6rem;
+    line-height: 2.2;
+    background-size: 100% 34px, 34px 100%;
+  }
+  
+  .writeLetter-textarea::placeholder {
+    font-size: 1.8rem;
+    padding-top: 80px;
+  }
+  
+  .writeLetter-buttons {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+  
+  .writeLetter-goBack,
+  .writeLetter-next {
+    min-height: 90px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    flex: 1;
+  }
+  
+  .writeLetter-content::after,
+  .writeLetter-content::before {
+    display: none;
+  }
+
+  .tenThings-container {
+    padding: 1rem;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+  
+  .tenThings-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.8rem;
+    margin-top: 1rem;
+    border-width: 8px;
+    border-radius: 20px;
+  }
+  
+  .tenThings-title {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  .tenThings-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .tenthings-textarea {
+    min-height: 70px;
+    max-height: 100px;
+    padding: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    border-width: 2px;
+    border-radius: 10px;
+    background-size: 100% 22px;
+  }
+  
+  .tenthings-textarea::placeholder {
+    font-size: 1.6rem;
+    padding-top: 20px;
+  }
+  
+  .tenThings-buttons {
+    gap: 1.2rem;
+  }
+  
+  .writeLetter-goBack,
+  .writeLetter-next {
+    min-height: 85px;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    border-radius: 12px;
+  }
+  
+  .tenThings-content::after {
+    bottom: -25px;
+    right: -25px;
+    font-size: 5rem;
+  }
+  
+  .tenThings-content::before {
+    top: -25px;
+    left: -25px;
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tenThings-container {
+    padding: 0.5rem;
+  }
+  
+  .tenThings-content {
+    padding: 1.5rem;
+    border-width: 6px;
+    border-radius: 15px;
+  }
+  
+  .tenThings-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .tenThings-grid {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tenthings-textarea {
+    min-height: 65px;
+    max-height: 90px;
+    padding: 0.9rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    border-radius: 8px;
+    background-size: 100% 20px;
+  }
+  
+  .tenthings-textarea::placeholder {
+    font-size: 1.4rem;
+    padding-top: 18px;
+  }
+  
+  .tenThings-buttons {
+    gap: 1rem;
+  }
+  
+  .writeLetter-goBack,
+  .writeLetter-next {
+    min-height: 75px;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: 10px;
+  }
+  
+  .tenThings-content::after,
+  .tenThings-content::before {
+    display: none;
+  }
+}
