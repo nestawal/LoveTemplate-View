@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
+ 
 
 
 export default function Login (){
     const navigate = useNavigate()
+    const url = "https://andika-backend.onrender.com"
 
     const [formData,setFormData] = useState({
         email:"",
@@ -20,8 +23,20 @@ export default function Login (){
     }
     console.log(formData)
 
-    const handleClick = () =>{
-        navigate('/letter')
+    const handleClick = (e) =>{
+        e.preventDefault()
+        axios.post(`${url}/identity/login`,{
+            email: formData.email,
+            password: formData.password
+        })
+        .then(result=>{console.log(result.data.person)
+            //if(result.data.person.written == false){
+               navigate("/letter",{state: {user: result.data.person._id}})
+            //}else{
+            //    navigate("/status")
+            //}
+        })
+        .catch(error=>console.log(error))
     }
 
     return(

@@ -1,161 +1,190 @@
-/* Container styling */
+/* ===== FONT IMPORTS - Add to index.html ===== */
+/*
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+*/
+
+/* ===== DESKTOP VERSION - Side by side, NO SCROLL ===== */
+
+/* Container styling - ALL PINK, side-by-side, no scroll */
 .container {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe9ef 100%);
   padding: 3rem;
   box-sizing: border-box;
   min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
-/* Intro section */
+/* Pink decorative hearts background */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(255, 182, 193, 0.2) 0%, transparent 25%),
+    radial-gradient(circle at 85% 65%, rgba(255, 192, 203, 0.18) 0%, transparent 30%),
+    radial-gradient(circle at 45% 85%, rgba(255, 218, 224, 0.15) 0%, transparent 35%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Intro section - 60% width - SIDE BY SIDE */
 .Intro {
-  flex: 0 0 60%;
+  flex: 0 0 55%;
   display: block;
   text-align: left;
   padding-right: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-/* Main text styling - SINGLE LINE */
+/* Main text styling - Romantic Pink */
 .main-text {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3.5rem, 7vw, 5rem); /* Slightly smaller for single line */
-  font-weight: 900;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(1rem, 6vw, 3rem);
+  font-weight: 500;
   line-height: 1.2;
   margin: 0 0 2rem 0;
   text-align: left;
-  letter-spacing: -0.5px;
-  color: #333;
-  white-space: normal; /* Allow normal wrapping */
+  letter-spacing: 0.5px;
+  color: #b3475a;
+  white-space: normal;
   word-wrap: break-word;
+  text-shadow: 2px 2px 10px rgba(255, 220, 240, 0.9);
 }
 
-/* Button styling */
+/* Envelope decoration */
+.main-text::before {
+  content: "💌";
+  display: block;
+  font-size: 4.2rem;
+  margin-bottom: 1.2rem;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 8px 15px rgba(255, 130, 150, 0.4));
+}
+
+/* Button styling - Soft Pink Gradient */
 .andika-btn {
-  padding: 1.2rem 4rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: #FF6B8B;
+  padding: 1.3rem 4.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
   color: white;
+  background: linear-gradient(135deg, #ffa5b9 0%, #ff8da1 100%);
   border: none;
-  border-radius: 50px;
+  border-radius: 60px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(255, 107, 139, 0.4);
-  min-width: 250px;
-  display: block;
-  margin-top: 2rem;
+  box-shadow: 0 10px 25px rgba(255, 130, 150, 0.4);
+  min-width: 260px;
+  display: inline-block;
+  margin-top: 2.2rem;
+  font-family: 'Cormorant Garamond', 'Segoe UI', serif;
+  letter-spacing: 1.5px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Emoji styling */
+/* Button hover - darker pink */
+.andika-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(255, 130, 150, 0.55);
+  background: linear-gradient(135deg, #ffb0c2 0%, #ff99ad 100%);
+}
+
+/* Button active */
+.andika-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Heart icon on button */
+.andika-btn::after {
+  content: "❤️";
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.andika-btn:hover::after {
+  opacity: 1;
+  right: 22px;
+  animation: pulse 1s infinite;
+}
+
+/* Emoji container - 40% width - SIDE BY SIDE */
 .emoji {
   flex: 0 0 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
-
-/* Add this to your existing CSS */
-
-/* Pulsating animation for the heart */
+/* Heart emoji styling - Pulsating Pink */
 .emoji img {
   width: 100%;
   max-width: 500px;
   height: auto;
-  animation: pulse 2s infinite ease-in-out; /* Add this line */
+  animation: romantic-pulse 2.5s infinite ease-in-out;
+  filter: drop-shadow(0 15px 25px rgba(255, 130, 150, 0.35));
+  transition: all 0.3s ease;
 }
 
-/* Define the pulsating animation */
+/* Romantic pulsating animation */
+@keyframes romantic-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 15px 25px rgba(255, 130, 150, 0.35));
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 25px 35px rgba(255, 130, 150, 0.55));
+  }
+}
+
+/* Float animation for envelope */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Pulse animation for heart */
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
   }
   50% {
-    transform: scale(1.1); /* Grows 10% larger */
-    opacity: 0.9;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
   }
 }
 
-/* More dramatic pulsating effect */
-@keyframes pulse-strong {
-  0% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 5px rgba(255, 107, 139, 0.5));
-  }
-  50% {
-    transform: scale(1.15); /* Grows 15% larger */
-    filter: drop-shadow(0 0 15px rgba(255, 107, 139, 0.8));
-  }
-  100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 5px rgba(255, 107, 139, 0.5));
-  }
-}
-
-/* Heartbeat style pulsating */
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  5% {
-    transform: scale(1.1);
-  }
-  10% {
-    transform: scale(1);
-  }
-  15% {
-    transform: scale(1.15);
-  }
-  20% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Choose which animation you want by adding a class */
-.emoji.pulsating img {
-  animation: pulse 2s infinite ease-in-out;
-}
-
-.emoji.strong-pulse img {
-  animation: pulse-strong 2s infinite ease-in-out;
-}
-
-.emoji.heartbeat img {
-  animation: heartbeat 1.5s infinite ease-in-out;
-}
-
-/* Optional: Add glow effect on hover */
-.emoji img:hover {
-  animation: pulse-strong 1s infinite ease-in-out;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .emoji img {
-    max-width: 300px;
-    animation: pulse 2s infinite ease-in-out; /* Keep pulsing on mobile */
-  }
-}
-
-/* Mobile Responsive Styles */
+/* ===== MOBILE VERSION - Stacked, Scrollable ===== */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    padding: 1rem;
+    padding: 2rem 1.5rem;
     overflow-y: auto;
+    overflow-x: hidden;
+    max-height: none;
     min-height: 100vh;
+    justify-content: center;
   }
   
   .Intro {
@@ -164,27 +193,563 @@
     text-align: center;
     padding-right: 0;
     margin-bottom: 2rem;
+    margin-top: 1rem;
   }
   
   .main-text {
     text-align: center;
-    font-size: clamp(2.5rem, 7vw, 3.5rem);
-    margin-bottom: 1.5rem;
+    font-size: clamp(3.2rem, 8vw, 4.2rem);
+    margin-bottom: 2rem;
+  }
+  
+  .main-text::before {
+    font-size: 3.8rem;
+    margin-bottom: 1rem;
   }
   
   .emoji {
     flex: 0 0 auto;
-    width: 100%;
-    margin-bottom: 2rem;
+    width: 80%;
+    margin-bottom: 1rem;
   }
   
   .emoji img {
-    max-width: 300px;
+    max-width: 280px;
   }
   
   .andika-btn {
-    margin: 1rem auto 0;
-    padding: 1rem 3rem;
+    margin: 1.5rem auto 0;
+    padding: 1.2rem 3rem;
+    font-size: 1.5rem;
+    min-width: 240px;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .main-text {
+    font-size: clamp(2.6rem, 7vw, 3.2rem);
+  }
+  
+  .main-text::before {
+    font-size: 3.2rem;
+  }
+  
+  .emoji {
+    width: 85%;
+  }
+  
+  .emoji img {
+    max-width: 220px;
+  }
+  
+  .andika-btn {
+    padding: 1rem 2.5rem;
     font-size: 1.3rem;
+    min-width: 200px;
+  }
+}
+
+/* ===== LARGE DESKTOP ===== */
+@media (min-width: 1440px) {
+  .container {
+    padding: 4rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .Intro {
+    flex: 0 0 55%;
+  }
+  
+  .emoji {
+    flex: 0 0 40%;
+  }
+  
+  .main-text {
+    font-size: 6.2rem;
+  }
+  
+  .emoji img {
+    max-width: 600px;
+  }
+  
+  .andika-btn {
+    padding: 1.5rem 5rem;
+    font-size: 1.8rem;
+    min-width: 300px;
+  }
+}
+
+/* ===== GLOBAL RESETS - No Scroll on Desktop ===== */
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #fff5f7;
+}
+
+/* ===== WRITE INTRO PAGE STYLES ===== */
+.WriteIntro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe9ef 100%);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.background-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.background-hearts::before,
+.background-hearts::after {
+  content: "💗";
+  position: absolute;
+  font-size: 120px;
+  opacity: 0.05;
+}
+
+.background-hearts::before {
+  top: 10%;
+  left: 10%;
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.background-hearts::after {
+  bottom: 15%;
+  right: 10%;
+  animation: float-slow 10s ease-in-out infinite reverse;
+}
+
+.center-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 3.5rem 4rem;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(255, 130, 150, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(5px);
+}
+
+.romantic-text {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #b3475a;
+  margin: 0 0 3rem 0;
+  letter-spacing: 0.5px;
+}
+
+.romantic-text::before {
+  content: "💌";
+  display: block;
+  font-size: 4.2rem;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.romantic-button {
+  padding: 1.2rem 4rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #ffa5b9 0%, #ff8da1 100%);
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(255, 130, 150, 0.3);
+  letter-spacing: 1.5px;
+  font-family: 'Cormorant Garamond', serif;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.romantic-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(255, 130, 150, 0.45);
+  background: linear-gradient(135deg, #ffb0c2 0%, #ff99ad 100%);
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+/* ===== SIGN UP PAGE STYLES - Pink Theme ===== */
+.signUpContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe9ef 100%);
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.signUpContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 40%, rgba(255, 182, 193, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(255, 192, 203, 0.12) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.signUp-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 450px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 30px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 50px rgba(255, 130, 150, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.signUp-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #b3475a;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(255, 220, 240, 0.8);
+}
+
+.signUp-text {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+  border: 2px solid #ffc0cb;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #b3475a;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.signUp-text:focus {
+  outline: none;
+  border-color: #ff8da1;
+  box-shadow: 0 0 0 3px rgba(255, 141, 161, 0.2);
+  background-color: white;
+}
+
+.signUp-text::placeholder {
+  color: #dba1a1;
+  font-size: 1rem;
+}
+
+.signUpContainer button {
+  width: 100%;
+  padding: 1.2rem;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #ffa5b9 0%, #ff8da1 100%);
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 1.5px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 20px rgba(255, 130, 150, 0.3);
+}
+
+.signUpContainer button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(255, 130, 150, 0.45);
+  background: linear-gradient(135deg, #ffb0c2 0%, #ff99ad 100%);
+}
+
+/* ===== WRITE LETTER PAGE STYLES ===== */
+.writeLetter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe9ef 100%);
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.writeLetter-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: 0 20px 50px rgba(255, 130, 150, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.writeLetter-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #b3475a;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(255, 220, 240, 0.8);
+  display: block;
+}
+
+.writeLetter-textarea {
+  width: 100%;
+  min-height: 350px;
+  padding: 2rem;
+  font-family: 'EB Garamond', 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #b3475a;
+  background-color: #fff9fb;
+  border: 2px solid #ffc0cb;
+  border-radius: 20px;
+  resize: vertical;
+  box-shadow: inset 0 0 20px rgba(255, 182, 193, 0.1);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.writeLetter-textarea:focus {
+  outline: none;
+  border-color: #ff8da1;
+  box-shadow: inset 0 0 25px rgba(255, 141, 161, 0.15);
+  background-color: white;
+}
+
+.writeLetter-textarea::placeholder {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #dba1a1;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.writeLetter-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.writeLetter-goBack,
+.writeLetter-next {
+  flex: 1;
+  padding: 1.2rem 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  letter-spacing: 1px;
+}
+
+.writeLetter-goBack {
+  background: linear-gradient(135deg, #ffe9ef 0%, #ffd9e2 100%);
+  color: #b3475a;
+  border: 2px solid #ffc0cb;
+  box-shadow: 0 6px 18px rgba(255, 130, 150, 0.15);
+}
+
+.writeLetter-goBack:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(255, 130, 150, 0.25);
+  background: linear-gradient(135deg, #ffd9e2 0%, #ffc9d4 100%);
+}
+
+.writeLetter-next {
+  background: linear-gradient(135deg, #ffa5b9 0%, #ff8da1 100%);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 18px rgba(255, 130, 150, 0.3);
+}
+
+.writeLetter-next:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 130, 150, 0.45);
+  background: linear-gradient(135deg, #ffb0c2 0%, #ff99ad 100%);
+}
+
+/* ===== TEN THINGS PAGE STYLES ===== */
+.tenThings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe9ef 100%);
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.tenThings-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 50px rgba(255, 130, 150, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.tenThings-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  font-weight: 500;
+  color: #b3475a;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(255, 220, 240, 0.8);
+}
+
+.tenThings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tenthings-textarea {
+  width: 100%;
+  min-height: 80px;
+  max-height: 120px;
+  padding: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #b3475a;
+  background-color: #fff9fb;
+  border: 2px solid #ffc0cb;
+  border-radius: 15px;
+  resize: vertical;
+  box-shadow: inset 0 0 15px rgba(255, 182, 193, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tenthings-textarea:focus {
+  outline: none;
+  border-color: #ff8da1;
+  box-shadow: inset 0 0 20px rgba(255, 141, 161, 0.15);
+  background-color: white;
+}
+
+.tenthings-textarea::placeholder {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #dba1a1;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.tenThings-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* ===== MOBILE RESPONSIVE FOR ALL PAGES ===== */
+@media (max-width: 768px) {
+  .tenThings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .writeLetter-buttons,
+  .tenThings-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .center-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .writeLetter-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .tenThings-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .romantic-text {
+    font-size: 2rem;
+  }
+  
+  .writeLetter-label {
+    font-size: 2.5rem;
+  }
+  
+  .tenThings-title {
+    font-size: 2.5rem;
+  }
+  
+  .writeLetter-textarea {
+    min-height: 250px;
+    font-size: 1.4rem;
   }
 }

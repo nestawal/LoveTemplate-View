@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useNavigate,useLocation} from "react-router-dom";
 import WriteIntro from "./WriteIntro";
 import WriteLetter from "./WriteLetter";
 import FirstMeet from "./FirstMeet";
@@ -6,9 +7,15 @@ import TenThings from "./tenThings";
 import Future from "./Future";
 import Questionnaire from "./Questionnaire";
 import RomanticBook from "./RomanticBook";
+import axios from "axios";
+
 
 
 export default function Letter(){
+    const navigate = useNavigate();
+    const location = useLocation();
+    const userId = location.state?.user  || "no user Id ";
+    console.log("this is the user id ",userId)
     console.log("This is letter page")
     const [letterContent,setLetterContent] = useState({
         letter : "",
@@ -36,6 +43,24 @@ export default function Letter(){
                 tenThings: updatedThings
             };
         });
+    }
+
+    const url = 'https://andika-backend.onrender.com'
+
+    const submitLetter =(e)=>{
+        e.preventDefault();
+        axios.post(`${url}/pepe/newPepe`,{
+            letterId : userId,
+            letter : letterContent.letter,
+            firstImpression : letterContent.firstImpression,
+            tenThings : letterContent.tenThings,
+            future : letterContent.future,
+            questionnaire : letterContent.questionnaire
+        })
+        .then(result=>{console.log(result)
+            navigate("/link",{state: {linkId : userId}})
+        })
+        .catch(error=>console.log(error))
     }
 
     const [pageNo,setPageNo] = useState(1);
@@ -111,12 +136,14 @@ export default function Letter(){
                     onMinus = {onMinus}
                     onPlus = {onPlus}
                     letterContent={letterContent}
+                    sendLetter = {submitLetter}
                 />
             )
         }
     }
 
     console.log(letterContent)
+
   return(
     <>
         {page(pageNo)}

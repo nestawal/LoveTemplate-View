@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
 
 export default function SignUp(){
     const navigate = useNavigate();
+    const url = "https://andika-backend.onrender.com"
    
     const [formData,setFormData] = useState({
         name:"",
@@ -21,11 +23,22 @@ export default function SignUp(){
     }
     console.log(formData)
 
-    const handleClick = () =>{
-        if(formData.password == formData.confirmPassword){
-            navigate('/letter')
+    const handleClick = (e) =>{
+            if(formData.password == formData.confirmPassword){
+                e.preventDefault()
+                axios.post(`${url}/identity/signUp`,{
+                    name : formData.name,
+                    email: formData.email,
+                    password: formData.password
+                })
+                .then(result=>{console.log(result.data.user)
+                    navigate("/letter",{state: {user: result.data.user._id}})
+                })
+                .catch(error=>console.log(error))
+
+            }
         }
-    }
+    
 
      return(
        <div className="signUpContainer">
@@ -71,7 +84,7 @@ export default function SignUp(){
                 onChange={handleChange}
             />
             
-            <button onClick={()=>handleClick()}>Sign Up</button>
+            <button onClick={handleClick}>Sign Up</button>
             
             {/* Optional login link */}
             <div className="login-link">

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './RomanticBook.css';
 
-export default function RomanticBook({ letterContent }) {
+export default function RomanticBook({ letterContent,sendLetter }) {
     const [currentPage, setCurrentPage] = useState(0);
     
     // Create pages only from sections that have content
@@ -118,8 +118,8 @@ export default function RomanticBook({ letterContent }) {
                 </button>
                 
                 {safeCurrentPage === pages.length - 1 ? (
-                    <button  className="restart-btn">
-                        Write Again ❤️
+                    <button  className="restart-btn" onClick={sendLetter}>
+                        send ❤️
                     </button>
                 ) : (
                     <button 

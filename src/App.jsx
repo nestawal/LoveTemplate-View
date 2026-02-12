@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -10,13 +10,13 @@ function App() {
   }
 
   return (
-    <div className='container'>
+    <div className='container'>  {/* ← THIS MUST BE HERE */}
       <div className='Intro'>
         <p className="main-text">
           Hey,<br/>
           Send a letter <br/>
           to your <br/>
-          mpendwa<br/>
+          mpendwa
         </p>
         <button className="andika-btn" onClick={handleClick}>
           Andika

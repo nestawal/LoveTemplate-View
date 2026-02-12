@@ -1,0 +1,361 @@
+/* Add to ViewLetter.css */
+
+/* Name Input Page */
+.name-input-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.name-input-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.name-input-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: #be185d;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.name-form {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.input-group label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: #4a044e;
+    font-weight: 600;
+}
+
+.name-input-field {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    border: 2px solid #f9a8d4;
+    border-radius: 40px;
+    background: white;
+    color: #4a044e;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.name-input-field:focus {
+    outline: none;
+    border-color: #be185d;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.1);
+}
+
+.name-input-field::placeholder {
+    color: #d4a6b6;
+    font-size: 1.4rem;
+}
+
+.open-letter-btn {
+    padding: 1.5rem 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #ff85a2 0%, #ff6b95 100%);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 149, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    border: 2px solid white;
+}
+
+.open-letter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 107, 149, 0.6);
+}
+
+.name-input-footer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #8a4b76;
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* Viewer Name Badge */
+.viewer-name-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #be185d;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 245, 250, 0.8);
+    border-radius: 40px;
+    display: inline-block;
+    border: 1px dashed #f9a8d4;
+}
+
+.viewer-name-badge span {
+    font-weight: 700;
+    color: #be185d;
+    text-transform: capitalize;
+}
+
+/* PDF Button */
+.pdf-btn {
+    padding: 1.2rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #8b5a2b 0%, #654321 100%);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(101, 67, 33, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: 2px solid #e6d5b8;
+    flex: 0.8;
+}
+
+.pdf-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(101, 67, 33, 0.5);
+    background: linear-gradient(135deg, #9b6b3b 0%, #7a5230 100%);
+}
+
+.pdf-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Navigation buttons container */
+.book-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .name-input-message {
+        font-size: 1.8rem;
+    }
+    
+    .input-group label {
+        font-size: 1.4rem;
+    }
+    
+    .name-input-field {
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+    
+    .open-letter-btn {
+        font-size: 1.6rem;
+        padding: 1.2rem 2rem;
+    }
+    
+    .book-navigation {
+        flex-direction: column;
+    }
+    
+    .pdf-btn,
+    .nav-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-input-message {
+        font-size: 1.6rem;
+    }
+    
+    .input-group label {
+        font-size: 1.3rem;
+    }
+    
+    .name-input-field {
+        font-size: 1.3rem;
+    }
+    
+    .open-letter-btn {
+        font-size: 1.4rem;
+    }
+    
+    .viewer-name-badge {
+        font-size: 1.1rem;
+    }
+}
+
+/* Add to ViewLetter.css */
+
+/* PDF Progress Indicator */
+.pdf-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.pdf-progress-content {
+    background: white;
+    padding: 3rem 4rem;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 3px solid #f9a8d4;
+    max-width: 400px;
+    width: 90%;
+}
+
+.pdf-progress-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: float 2s infinite;
+}
+
+.pdf-progress-content p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #be185d;
+    margin-bottom: 2rem;
+}
+
+.pdf-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #fce7f3;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pdf-progress-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #ff85a2, #be185d);
+    animation: progress 2s ease-in-out infinite;
+    transform-origin: left;
+}
+
+@keyframes progress {
+    0% {
+        transform: scaleX(0);
+    }
+    50% {
+        transform: scaleX(0.7);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Update PDF button styling for last page */
+.pdf-btn {
+    padding: 1.2rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #8b5a2b 0%, #654321 100%);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(101, 67, 33, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: 2px solid #e6d5b8;
+    flex: 1;
+}
+
+.pdf-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(101, 67, 33, 0.5);
+    background: linear-gradient(135deg, #9b6b3b 0%, #7a5230 100%);
+}
+
+.pdf-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Navigation container adjustments */
+.book-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    flex: 0.8;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .book-navigation {
+        flex-direction: column;
+    }
+    
+    .nav-btn,
+    .pdf-btn {
+        width: 100%;
+    }
+    
+    .pdf-progress-content {
+        padding: 2rem;
+    }
+    
+    .pdf-progress-content p {
+        font-size: 1.6rem;
+    }
+}

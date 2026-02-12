@@ -4,6 +4,8 @@ import './App.css';
 import './logins.css';
 import './Letter.css'
 import './RomanticBook.css'
+import './ViewLetter.css'
+import './LetterStatus.css'
 import ARoutes from './ARoutes'
 
 createRoot(document.getElementById('root')).render(
