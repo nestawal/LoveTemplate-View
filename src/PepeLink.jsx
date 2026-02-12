@@ -9,7 +9,7 @@ export default function PepeLink(){
         <div>
             <div>
                 <h2>This is the link<br/>Share it with<br/>Your Mpendwa</h2>
-                <p>url/pepe/{linkId}</p>
+                <p>https://andikapepe.netlify.app/signUp/pepe/{linkId}</p>
             </div>
         </div>
     )
