@@ -29,7 +29,7 @@ export default function Login (){
             email: formData.email,
             password: formData.password
         })
-        .then(result=>{console.log(result.data.person)
+        .then(result=>{console.log(result.data.person._id)
             //if(result.data.person.written == false){
                navigate("/letter",{state: {user: result.data.person._id}})
             //}else{
